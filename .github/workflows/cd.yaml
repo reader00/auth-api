@@ -19,6 +19,7 @@ jobs:
                   port: ${{ secrets.SSH_PORT }}
                   script: |
                       cd ~/auth-api
+                      git config --global url."https://${{ secrets.ACCESS_TOKEN_GITHUB }}@github".insteadOf https://github
                       git pull origin master
                       npm i
                       npm run migrate up
