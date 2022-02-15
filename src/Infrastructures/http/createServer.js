@@ -21,13 +21,22 @@ const createServer = async (container) => {
         },
     ]);
 
-    server.route({
-        method: 'GET',
-        path: '/',
-        handler: () => ({
-            value: 'Holla Worldo!',
-        }),
-    });
+    server.route([
+        {
+            method: 'GET',
+            path: '/',
+            handler: () => ({
+                value: 'Holla Worldo!',
+            }),
+        },
+        {
+            method: 'GET',
+            path: '/hi',
+            handler: () => ({
+                value: 'Halo, apa kabar? Sehat? Jangan lupa makan dan istirahat. Stay healthy!!!',
+            }),
+        },
+    ]);
 
     server.ext('onPreResponse', (request, h) => {
         // mendapatkan konteks response dari request
